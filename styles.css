@@ -14,33 +14,34 @@ html, body {
 
 section {
     width: 90%;
-    max-width: 600px; /* Adjust for readability */
+    max-width: 600px; /* Ensures readability across devices */
     margin: 20px 0;
     padding: 20px;
-    background-color: #112240; /* Harmonize background colors */
+    background-color: #112240;
     color: #CCD6F6;
     border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Enhance visibility */
-    text-align: center; /* Centralize text */
+    text-align: center; /* Centralize text content */
 }
 
 h1, p {
     margin: 10px 0;
 }
 
-#canvasContainer, #inputContainer, #suggestionBox {
-    background-color: #020C1B; /* Slightly different background for distinction */
-    box-shadow: none; /* Remove shadow for a cleaner look */
-}
-
 #canvasContainer {
-    height: 50vh; /* Maintain aspect ratio */
+    width: 80%; /* Reduce width to decrease overall size */
+    max-width: 700px; /* Adjust max width for larger screens */
+    height: 40vh; /* Decrease height to make more space for other elements */
+    margin: 20px 0;
+    background-color: #020C1B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 input, button {
-    width: calc(100% - 20px); /* Adjust width considering padding */
-    padding: 12px; /* Increase touch target size */
-    margin: 10px 0; /* More spacing */
+    width: calc(100% - 24px); /* Adjust for padding */
+    padding: 12px;
+    margin: 10px 0;
     border: 1px solid #64FFDA;
     border-radius: 5px;
 }
@@ -59,22 +60,30 @@ footer {
     text-align: center;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for better visibility and interaction */
 @media screen and (max-width: 768px) {
     h1, p {
-        font-size: 16px; /* Increase base font size for readability */
+        font-size: 16px; /* Improve readability on small screens */
+    }
+
+    #canvasContainer {
+        height: 30vh; /* Further reduce height on mobile for more space */
+    }
+
+    input, button {
+        padding: 15px; /* Larger touch targets for mobile users */
     }
 }
 
 .album-art {
-    width: 24px; /* Adjust for visibility */
+    width: 24px;
     height: 24px;
     margin-right: 5px;
 }
 
 @media screen and (min-width: 1024px) {
     .album-art {
-        width: 40px; /* Larger album art for larger screens */
+        width: 40px; /* Larger size for desktops */
         height: 40px;
     }
 }
