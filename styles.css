@@ -3,128 +3,98 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100vh; /* Ensure the body takes at least the viewport height */
+    min-height: 100vh;
     background-color: #0A192F;
     color: #8892B0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* Adjust content distribution */
+    justify-content: center; /* Improved content distribution */
+    text-align: center; /* Center text by default */
 }
 
-section#descriptionContainer {
-    text-align: center;
-    padding: 20px;
-    width: 90%; /* Responsive width */
-    max-width: 600px; /* Maximum width to maintain readability */
-    margin-top: 20px; /* Ensure visibility by adding top margin */
-    color: #CCD6F6; /* Bright color for contrast against the background */
+/* Improve section readability and spacing */
+section#descriptionContainer, #canvasContainer, #inputContainer, #suggestionBox {
+    width: 90%; /* Flexible width */
+    max-width: 600px; /* Max width for better readability */
+    margin: 20px 0; /* Consistent spacing */
+    padding: 20px; /* Adequate padding */
+    box-sizing: border-box; /* Include padding in width calculation */
+    background-color: #112240; /* Unified background color for sections */
+    color: #CCD6F6; /* Improved contrast */
+    border-radius: 5px; /* Consistent border-radius */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Subtle shadow for depth */
 }
 
 h1, p {
     margin: 10px 0;
+    line-height: 1.4; /* Improved line-height for readability */
 }
 
+/* Canvas container specific styles */
 #canvasContainer {
-    width: 90%;
     max-width: 800px;
-    height: 50vh;
-    margin: 20px 0;
+    height: 50vh; /* Responsive height */
     background-color: #020C1B;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-#inputContainer {
-    width: 90%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px; /* Adjust margin to control space */
-    padding: 15px;
-    background-color: #112240;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-
+/* Input and button enhancements for better interaction */
 #songInput, button {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #64FFDA;
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 15px; /* Larger touch targets */
+    margin: 5px 0; /* Spacing for touch targets */
+    border: 2px solid #64FFDA; /* Make border more visible */
 }
 
 button {
     background-color: #64FFDA;
     color: #020C1B;
     cursor: pointer;
+    font-weight: bold; /* Make text bold for better visibility */
 }
 
+/* Suggestion box specific styles */
 #suggestionBox {
-    width: 90%;
-    max-width: 500px;
     max-height: 200px;
     overflow-y: auto;
-    background-color: #020C1B;
-    border-radius: 0 0 5px 5px;
-    margin-top: 5px;
 }
 
+/* Footer adjustments */
 footer {
-    width: 100%;
-    padding: 10px 0;
+    padding: 20px 0;
     background-color: #112240;
     color: #64FFDA;
-    text-align: center;
     box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
-    margin-top: auto; /* Pushes the footer to the bottom */
 }
 
-/* If previously suggested media queries are causing inconsistency */
-@media (min-width: 768px) {
-    .album-art {
-        width: 16px; /* Maintain the smaller size or adjust as necessary */
-        height: 16px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .album-art {
-        width: 16px; /* Keep consistent or slightly adjust if needed */
-        height: 16px;
-    }
-}
-
-
-    section#descriptionContainer, #inputContainer, #suggestionBox {
-        width: 95%; /* Allow more width on smaller screens for better use of space */
-    }
-
-    footer {
-        padding: 15px 0; /* Adjust padding to ensure it's not too bulky on small screens */
-    }
-
-    /* Base styles */
-/* Base style for album art - a starting point */
+/* Responsive album art */
 .album-art {
-    width: 16px; /* Default small size for all devices */
+    width: 16px; /* Default size */
     height: 16px;
     object-fit: cover;
     margin-right: 5px;
 }
 
-
-
-/* Further adjustments for desktops if needed */
-@media (min-width: 1024px) {
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    h1, p {
+        font-size: calc(1em + 1vw); /* Scale text size on smaller screens */
+    }
+    
     .album-art {
-        width: 40px; /* Provides a better visual balance on large screens */
-        height: 40px;
+        width: 24px; /* Slightly larger on small screens for visibility */
+        height: 24px;
     }
 }
 
-
-
+@media (min-width: 1024px) {
+    .album-art {
+        width: 40px; /* Larger for desktop */
+        height: 40px;
+    }
+    
+    /* Adjust layout for larger screens */
+    section#descriptionContainer, #canvasContainer, #inputContainer, #suggestionBox {
+        max-width: 800px; /* Allow wider sections on larger screens */
+    }
+}
